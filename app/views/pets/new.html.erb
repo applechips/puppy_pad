@@ -1,8 +1,12 @@
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @pet do |f| %>
   <%= f.input :name %>
   <%= f.input :breed %>
-  <%= f.input :sex %>
-  <%= f.input :birthday %>
+  <%= f.input :sex, collection:[ "Male", "Female" ] %>
+  <%= f.input :birthday, as: :date, start_year: Date.today.year - 20,
+                                    end_year: Date.today.year,
+                                    order: [:month, :day, :year] %>
   <%= f.input :colour %>
   <%= f.input :breeder %>
-<% end %>  
+  <%= f.input :image %>
+  <%= f.button :submit %>
+<% end %>
