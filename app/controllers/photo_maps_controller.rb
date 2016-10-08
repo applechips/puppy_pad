@@ -1,0 +1,2 @@
+class PhotoMapsController < ApplicationController
+end

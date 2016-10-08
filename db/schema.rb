@@ -10,23 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006202438) do
+ActiveRecord::Schema.define(version: 20161008003504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "breeders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone_number"
+    t.string   "breed"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "medical_records", force: :cascade do |t|
+    t.string   "date_month"
+    t.string   "date_day"
+    t.string   "date_year"
+    t.string   "condition_procedure"
+    t.string   "charges"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.string   "breed"
     t.string   "sex"
-    t.string   "birthday"
     t.string   "colour"
     t.string   "breeder"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "image"
     t.integer  "user_id"
+    t.string   "birthday"
+    t.string   "birthday_month"
+    t.string   "birthday_year"
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
+  end
+
+  create_table "photo_maps", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "star_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -44,5 +80,21 @@ ActiveRecord::Schema.define(version: 20161006202438) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  create_table "vets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone_number"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "postal_code"
+    t.string   "city"
+    t.string   "province_state"
+    t.string   "country"
+    t.string   "dr_name"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_vets_on_user_id", using: :btree
+  end
+
   add_foreign_key "pets", "users"
+  add_foreign_key "vets", "users"
 end

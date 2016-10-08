@@ -1,0 +1,2 @@
+class PhotoMap < ApplicationRecord
+end

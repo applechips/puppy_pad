@@ -1,12 +1,2 @@
-<%= simple_form_for @pet do |f| %>
-  <%= f.input :name %>
-  <%= f.input :breed %>
-  <%= f.input :sex, collection:[ "Male", "Female" ] %>
-  <%= f.input :birthday, as: :date, start_year: Date.today.year - 20,
-                                    end_year: Date.today.year,
-                                    order: [:month, :day, :year] %>
-  <%= f.input :colour %>
-  <%= f.input :breeder %>
-  <%= f.input :image %>
-  <%= f.button :submit %>
-<% end %>
+<h1>About Your Pet</h1>
+<%= render "form" %>

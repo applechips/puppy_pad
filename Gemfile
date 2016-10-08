@@ -27,10 +27,18 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem "rails-erd"
+
 gem 'simple_form'
 
-gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+# gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+# gem 'quiet_assets'
+gem 'carrierwave'
 gem 'mini_magick'
+
+# gem 'geocoder'
+
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

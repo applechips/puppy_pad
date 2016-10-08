@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
-  resources :pets
+  resources :pets do
+    resources :vets
+    resources :breeders
+  end
 
   root "pets#index"
 end

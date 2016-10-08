@@ -1,0 +1,2 @@
+module PhotoMapsHelper
+end

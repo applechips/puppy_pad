@@ -1,0 +1,11 @@
+<%= simple_form_for @vet do |f| %>
+  <%= f.input :dr_name, :label => "Doctor" %>
+  <%= f.input :name, :label => "Address", :placeholder => "Name" %>
+  <%= f.input :address, :label => false, :placeholder => "Street" %>
+  <%= f.input :postal_code, :label => false, :placeholder => "Postal Code" %>
+  <%= f.input :city, :label => false, :placeholder => "City" %>
+  <%= f.input :province_state, :label => false, :placeholder => "Province/State" %>
+  <%= f.input :country, :label => false, collection: ["Canada", "United States"], :prompt => "Country" %>
+  <%= f.input :phone_number %>
+  <%= f.submit "Save" %>
+<% end %>

@@ -1,6 +1,5 @@
 class PetsController < ApplicationController
-  # before_action :authenticate_user!, only: [:create, :edit, :destroy, :update, :new]
-  # before_action :authorize!, only: [:destroy, :update, :edit]
+  before_action :authenticate_user!
 
   def new
     @pet = Pet.new
@@ -8,7 +7,7 @@ class PetsController < ApplicationController
 
   def create
     @pet        = Pet.new pet_params
-    @pet.user = current_user
+    @pet.user   = current_user
     if @pet.save
       redirect_to pet_path(@pet), notice: "Welcome to the Family!"
     else
@@ -18,6 +17,7 @@ class PetsController < ApplicationController
   end
 
   def show
+    @pet = Pet.find params[:id]
 
   end
 
@@ -38,17 +38,11 @@ class PetsController < ApplicationController
 
   private
 
-  # def find_question
-  #   @question = Question.friendly.find params[:id]
-  # end
 
   def pet_params
     params.require(:pet).permit([:name, :breed, :sex, :birthday,
                                       :colour, :breeder, :image])
   end
-  #
-  # def authorize!
-  #   redirect_to root_path, alert: 'access defined' unless can? :manage, @question
-  # end
+
 
 end

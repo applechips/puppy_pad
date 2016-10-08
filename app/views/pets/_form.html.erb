@@ -1,0 +1,12 @@
+<%= simple_form_for @pet do |f| %>
+  <%= f.input :name, wrapper_html: { id: 'pet_name' } %>
+  <%= f.input :breed, wrapper_html: { id: 'pet_breed' } %>
+  <%= f.input :sex, collection:[ "Male", "Female" ], wrapper_html: { id: 'pet_sex' } %>
+  <%= f.input :birthday_month, :label => "Date of Birth", :placeholder => "MM", wrapper_html: { id: 'pet_birthday_month' }  %>
+  <%= f.input :birthday, :label => false , :placeholder => "DD", wrapper_html: { id: 'pet_birthday' } %>
+  <%= f.input :birthday_year, :label => false , :placeholder => "YYYY", wrapper_html: { id: 'pet_birthday_year' } %>
+  <%= f.input :colour, wrapper_html: { id: 'pet_colour' } %>
+  <%= f.input :breeder, wrapper_html: { id: 'pet_breeder' }%>
+  <%= f.input :image, wrapper_html: { id: 'pet_image' } %>
+  <%= f.button :submit, wrapper_html: { id: 'pet_submit' }  %>
+<% end %>
