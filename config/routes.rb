@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   end
 
   get '/', to: 'pets#index', as: 'home'
+
+  root to: "pets#index"
 end
