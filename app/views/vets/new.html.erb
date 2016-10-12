@@ -1,4 +1,4 @@
-<%= simple_form_for @vet do |f| %>
+<%= simple_form_for pet_vets_path do |f| %>
   <%= f.input :dr_name, :label => "Doctor" %>
   <%= f.input :name, :label => "Address", :placeholder => "Name" %>
   <%= f.input :address, :label => false, :placeholder => "Street" %>

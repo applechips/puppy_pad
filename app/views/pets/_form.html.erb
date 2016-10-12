@@ -8,5 +8,7 @@
   <%= f.input :colour, wrapper_html: { id: 'pet_colour' } %>
   <%= f.input :breeder, wrapper_html: { id: 'pet_breeder' }%>
   <%= f.input :image, wrapper_html: { id: 'pet_image' } %>
+  <%= f.label :cover_photo %>
+  <%= f.file_field :cover_photo %>
   <%= f.button :submit, wrapper_html: { id: 'pet_submit' }  %>
 <% end %>

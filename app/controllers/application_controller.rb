@@ -15,9 +15,17 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path unless user_signed_in?
   end
 
-  # def pet_owner?(pet)
-  #   current_user == pet.user
-  # end
-  # helper_method :pet_owner?
+  def pet_owner?(pet)
+    current_user == pet.user
+  end
+  helper_method :pet_owner?
+
+  def your_pets
+    @pets = Pet.all
+    @pets.each do |p|
+      p.name
+    end
+  end
+  helper_method :your_pets
 
 end

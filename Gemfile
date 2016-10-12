@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -27,18 +27,37 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem "rails-erd"
+gem 'json'
+
+gem 'rails-erd'
 
 gem 'simple_form'
 
 # gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 # gem 'quiet_assets'
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
-# gem 'geocoder'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 gem 'omniauth-facebook'
+
+gem 'chartkick'
+gem 'googlecharts'
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
+
+gem 'acts-as-taggable-on'
+
+gem 'jquery-ui-rails'
+gem 'jquery-datetimepicker-rails'
+gem 'simple-form-datepicker'
+
+gem 'twilio-ruby'
+gem 'daemons'
+gem 'delayed_job_active_record'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

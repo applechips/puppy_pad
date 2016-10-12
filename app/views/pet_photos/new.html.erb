@@ -1,0 +1,9 @@
+<%= simple_form_for @pet_photo, url: pet_pet_photos_path, :method => 'post' do |f| %>
+  <%= f.input :caption %>
+  <%= f.input :date, as: :date, start_year: Date.today.year - 10,
+                             end_year: Date.today.year, discard_day: false,
+                             order: [:day, :month, :year] %>
+  <%= f.input :address, :placeholder => "Adress, City, Province" %>
+  <%= f.input :images, as: :file, :multiple => true %>
+  <%= f.button :submit, "Save" %>
+<% end %>
