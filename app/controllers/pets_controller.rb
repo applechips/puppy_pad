@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
   before_action :authenticate_user!
   include TwilioHelper
-  
+
   def new
     @pet = Pet.new
   end
@@ -23,7 +23,6 @@ class PetsController < ApplicationController
   end
 
   def index
-
   end
 
   def edit

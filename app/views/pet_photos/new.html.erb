@@ -4,6 +4,6 @@
                              end_year: Date.today.year, discard_day: false,
                              order: [:day, :month, :year] %>
   <%= f.input :address, :placeholder => "Adress, City, Province" %>
-  <%= f.input :images, as: :file, :multiple => true %>
+  <%= f.file_field :images, multiple: true %>
   <%= f.button :submit, "Save" %>
 <% end %>

@@ -5,12 +5,10 @@ class PetPhotosController < ApplicationController
   end
 
   def create
-    byebug
     @pet = Pet.find params[:pet_id]
     @pet_photo = PetPhoto.new pet_photo_params
     @pet_photo.pet = @pet
 
-    byebug
     if @pet_photo.save
       redirect_to pet_pet_photo_path(@pet, @pet_photo), notice: "Added!"
     else
@@ -22,9 +20,22 @@ class PetPhotosController < ApplicationController
 
   def index
     @pet_photo = PetPhoto.all
+    if params[:lat]
+      @pet_photos = PetPhoto.near([params[:lat], params[:lng]], 50, units: :km)
+    else
+      @pet_photos = PetPhoto.where.not(latitude: nil, longitude: nil).order(:created_at).limit(30)
+    end
+
+    @markers = Gmaps4rails.build_markers(@pet_photos) do |pet_photo, marker|
+      marker.lat        pet_photo.latitude
+      marker.lng        pet_photo.longitude
+      marker.infowindow pet_photo.caption
+    end
   end
 
   def show
+    @pet_photo = PetPhoto.find params[:id]
+
   end
 
   private
