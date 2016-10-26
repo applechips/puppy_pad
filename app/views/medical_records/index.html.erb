@@ -1,0 +1,45 @@
+
+<canvas id="health_chart"></canvas>
+  <script>
+  $(document).ready(function(){
+    var data = {
+    	labels : <%= @date.to_s.html_safe %>,
+    	datasets : [
+    		{
+          label : "Weight",
+          cubicInterpolationMode : "monotone",
+          borderColor : "rgba(109,204,204,1)",
+          spanGaps : true,
+          backgroundColor: 'rgba(109,204,204,0.2)',
+    			// data : fakeData.reverse()
+    			data : <%= @weight %>
+    		},
+    	]
+    }
+
+    var ctx = document.getElementById('health_chart').getContext('2d');
+    var myNewChart = new Chart(ctx , {
+        type: "line",
+        data: data,
+        options: {
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                fontSize: 20,
+                labelString: 'Weight (lbs)'
+              }
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                fontSize: 19,
+                labelString: 'Date (YYY-MM-DD)'
+              }
+            }]
+
+          }
+        }
+    });
+  })
+  </script>

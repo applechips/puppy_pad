@@ -1,15 +1,30 @@
-<%= image_tag @pet_photo.images.url(:medium) %>
+<%#= image_tag @pet_photo.images.url(:medium) %>
 
+<!-- if @pet_photo.address -->
 <div>
-  <div id="map" style='height: 400px;'></div>
+    <div id="map" style='height: 400px;'></div>
 </div>
 
-
 <script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @pet_photo.latitude %>,
+        "lng": <%= @pet_photo.longitude %>,
+        "infowindow": "<%= @pet_photo.caption %> "
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+
+<!-- <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(<%= raw pet_photos_json(@petphotos).to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
-</script>
+</script> -->

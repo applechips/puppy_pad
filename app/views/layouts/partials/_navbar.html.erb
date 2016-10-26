@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+      <div class="sidebar-wrapper">
+          <div class="logo">
+            <a href="http://localhost:3000" class="simple-text">
+                PUPPY PAD
+            </a>
+          </div>
+
+          <ul class="nav" >
+              <li>
+
+                <% @pets.each do |p| %>
+                  <%= link_to p.name.upcase, pet_path(p) %>
+                  <i class="ti-user"></i>
+                <% end %>
+              </li>
+              <li>
+                  <a href="table.html">
+                      <i class="ti-view-list-alt"></i>
+                      <p>Places</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="typography.html">
+                      <i class="ti-text"></i>
+                      <p>Typography</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="icons.html">
+                      <i class="ti-pencil-alt2"></i>
+                      <p>Icons</p>
+                  </a>
+              </li>
+              <li>
+                  <a href="/photo_maps">
+                      <i class="ti-map"></i>
+                      <p>Maps</p>
+                  </a>
+              </li>
+              <li>
+                  <%= link_to "LOG OUT", sessions_path, method: :delete %>
+                      <i class="ti-map"></i>
+                  </a>
+              </li>
+
+          </ul>
+      </div>
+    </div>
+
+    <div class="main-panel">
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar bar1"></span>
+                      <span class="icon-bar bar2"></span>
+                      <span class="icon-bar bar3"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Dashboard</a>
+              </div>
+              <div class="collapse navbar-collapse">
+
+                  <!-- dashboard navbar stuff -->
+
+              </div>
+          </div>
+      </nav>
+
+      <%= yield %>
+    </div>

@@ -23,6 +23,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  process :auto_orient # this should go before all other "process" steps
+
+  def auto_orient
+    manipulate! do |image|
+      image.tap(&:auto_orient)
+    end
+  end
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]
@@ -37,13 +45,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_limit => [200, 200]
   end
 
   version :large do
     process :resize_to_fit => [300, 300]
   end
-  
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist

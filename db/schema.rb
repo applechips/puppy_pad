@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20161011231448) do
     t.integer  "pet_id"
     t.index ["pet_id"], name: "index_pet_photos_on_pet_id", using: :btree
   end
-
+-
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.string   "breed"

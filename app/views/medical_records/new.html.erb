@@ -1,7 +1,7 @@
 <%= simple_form_for @medical_record,
   :url => url_for(:action => 'create', :controller => 'medical_records'),
   :method => 'post' do |f| %>
-  <%= f.input :date, :placeholder => "MM/DD/YYYY" %>
+  <%= f.input :date, :placeholder => "YYYY-MM-DD" %>
   <%= f.input :weight, :label => "Weight (lbs)", :required => false %>
   <%= f.input :condition_procedure, :label => "Condition/Procedure" %>
   <%= f.input :charges, :required => false  %>

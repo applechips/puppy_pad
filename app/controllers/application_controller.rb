@@ -21,11 +21,16 @@ class ApplicationController < ActionController::Base
   helper_method :pet_owner?
 
   def your_pets
-    @pets = Pet.all
+    @pets = current_user.pets
     @pets.each do |p|
       p.name
     end
   end
   helper_method :your_pets
+
+  def has_pet?
+    current_user.pets if defined? current_user.pets
+  end
+  helper_method :has_pet?
 
 end

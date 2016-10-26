@@ -20,9 +20,14 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find params[:id]
+    @pets = current_user.pets
+    render layout: 'dashboard'
   end
 
   def index
+    @pets = current_user.pets
+    # shows all of current user's pets
+    render layout: 'dashboard'
   end
 
   def edit
@@ -45,7 +50,6 @@ class PetsController < ApplicationController
   end
 
   private
-
 
   def pet_params
     params.require(:pet).permit([:name, :breed, :sex, :birthday,

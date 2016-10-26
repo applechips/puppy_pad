@@ -2,10 +2,10 @@ class MedicalRecordsController < ApplicationController
 
   def new
     @medical_record = MedicalRecord.new
+    @pet = Pet.find params[:pet_id]
   end
 
   def create
-
     @pet = Pet.find params[:pet_id]
     @medical_record = MedicalRecord.new medical_record_params
     @medical_record.pet = @pet
@@ -23,7 +23,19 @@ class MedicalRecordsController < ApplicationController
   end
 
   def index
+    @weight = []
+    @date = []
     @medical_record = MedicalRecord.all
+    @pet = Pet.find params[:pet_id]
+    record = @pet.medical_records.order(date: :asc)
+    record.each do |r|
+      if r.weight.nil?
+        else
+          @weight.push(r.weight)
+          @date.push(r.date.to_s)
+      end
+    end
+    p @date
   end
 
   def destroy

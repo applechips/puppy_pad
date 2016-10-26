@@ -33,10 +33,17 @@ gem 'rails-erd'
 
 gem 'simple_form'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-glyphicons'
+
+gem 'font-awesome-rails'
+
+
 # gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 # gem 'quiet_assets'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
+gem 'plupload-rails'
 
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -59,12 +66,15 @@ gem 'twilio-ruby'
 gem 'daemons'
 gem 'delayed_job_active_record'
 
+gem 'chart-js-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -77,6 +87,7 @@ group :development do
   gem 'interactive_editor'
   gem 'awesome_print'
   gem 'hirb'
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

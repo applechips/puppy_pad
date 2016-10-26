@@ -21,5 +21,5 @@ Rails.application.routes.draw do
     resources :appointments
   end
 
-  get '/', to: 'pets#index', as: 'home'
+  root to: "pets#index"
 end

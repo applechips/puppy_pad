@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery-ui
+
 //= require jquery
 //= require jquery_ujs
-//= require Chart.bundle
-//= require chartkick
+//= require bootstrap-sprockets
+//= require underscore
+//= require Chart
+//= require gmaps/google
 //= require turbolinks
 //= require_tree .
