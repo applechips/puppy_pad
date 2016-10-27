@@ -26,7 +26,6 @@ class PetPhotosController < ApplicationController
     else
       @pet_photos = PetPhoto.where.not(latitude: nil, longitude: nil).order(:created_at).limit(30)
     end
-
   end
 
   def show

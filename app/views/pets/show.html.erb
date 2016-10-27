@@ -1,6 +1,6 @@
 
 
-<%#= link_to "Medical Records", pet_medical_records_path(@pet) %> 
+<%#= link_to "Medical Records", pet_medical_records_path(@pet) %>
 <%#= link_to "Add a Medical Record", new_pet_medical_record_path(@pet) %>
 <%#= link_to "Photos", pet_pet_photos_path(@pet) %>
 <%#= link_to "Add a Photo", new_pet_pet_photos_path(@pet) %>
@@ -36,14 +36,11 @@
                                       <div class="text-center">
                                           <div class="row">
                                               <div class="col-md-3 col-md-offset-1">
-                                                  <h5>Health:</h5>
+                                                <%= link_to "Add a Photo", new_pet_photos_path() %>
                                               </div>
                                               <div class="col-md-4">
                                                   <h5>Upcoming Appointments:<br /><small>Used</small></h5>
                                               </div>
-                                              <!-- <div class="col-md-3">
-                                                  <h5>24,6$<br /><small>Spent</small></h5>
-                                              </div> -->
                                           </div>
                                       </div>
                                   </div>

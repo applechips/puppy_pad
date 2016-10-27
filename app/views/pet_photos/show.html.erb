@@ -13,18 +13,7 @@
         "lat": <%= @pet_photo.latitude %>,
         "lng": <%= @pet_photo.longitude %>,
         "infowindow": "<%= @pet_photo.caption %> "
+
       }
     ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
 </script>
-
-<!-- <script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%= raw pet_photos_json(@petphotos).to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-</script> -->
