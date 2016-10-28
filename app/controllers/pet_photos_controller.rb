@@ -9,8 +9,7 @@ class PetPhotosController < ApplicationController
     @pet = Pet.find params[:pet_id]
     @pet_photo = PetPhoto.new pet_photo_params
     @pet_photo.pet = @pet
-    add_more_images(pet_photo_params[:images])
-    
+
     if @pet_photo.save
       flash[:alert] = "UUUUUUUU!"
       redirect_to pet_pet_photo_path(@pet, @pet_photo), notice: "Added!"
@@ -33,7 +32,7 @@ class PetPhotosController < ApplicationController
 
   def show
     @pet_photo = PetPhoto.find params[:id]
-
+    @pet_photos = PetPhoto.all
   end
 
   private
@@ -42,10 +41,5 @@ class PetPhotosController < ApplicationController
     params.require(:pet_photo).permit(:caption, :date, :address, {images: []})
   end
 
-  def add_more_images(new_images)
-    images = @pet_photo.images
-    images += new_images
-    @pet_photo.images = images
-  end
 
 end

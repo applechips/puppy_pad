@@ -1,6 +1,7 @@
-<%#= image_tag @pet_photo.images.url(:medium) %>
+<% @pet_photo.images.each_with_index do |image, index| %>
+  <%= image_tag(image.url(:large)) %>
+<% end %>
 
-<!-- if @pet_photo.address -->
 <div>
     <div id="map" style='height: 400px;'></div>
 </div>
@@ -17,5 +18,3 @@
       }
     ]);
 </script>
-
-SHOWWWW
