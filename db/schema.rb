@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011231448) do
+ActiveRecord::Schema.define(version: 20161028001047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,16 +47,16 @@ ActiveRecord::Schema.define(version: 20161011231448) do
   create_table "pet_photos", force: :cascade do |t|
     t.string   "caption"
     t.string   "date"
-    t.string   "images"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "address"
     t.float    "longitude"
     t.float    "latitude"
     t.integer  "pet_id"
+    t.string   "images",     default: [],              array: true
     t.index ["pet_id"], name: "index_pet_photos_on_pet_id", using: :btree
   end
--
+
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.string   "breed"
@@ -72,14 +72,6 @@ ActiveRecord::Schema.define(version: 20161011231448) do
     t.string   "birthday_year"
     t.string   "cover_photo"
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
-  end
-
-  create_table "photo_maps", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "address"
-    t.float    "longitude"
-    t.float    "latitude"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -149,19 +141,9 @@ ActiveRecord::Schema.define(version: 20161011231448) do
     t.index ["user_id"], name: "index_vets_on_user_id", using: :btree
   end
 
-  create_table "weights", force: :cascade do |t|
-    t.float    "weight"
-    t.string   "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "pet_id"
-    t.index ["pet_id"], name: "index_weights_on_pet_id", using: :btree
-  end
-
   add_foreign_key "medical_records", "pets"
   add_foreign_key "pet_photos", "pets"
   add_foreign_key "pets", "users"
   add_foreign_key "vets", "pets"
   add_foreign_key "vets", "users"
-  add_foreign_key "weights", "pets"
 end

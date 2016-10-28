@@ -1,3 +1,24 @@
+3663 Park Rd, North Vancouver, BC
+
+---
+ <%= f.label :caption, :class => 'control-label' %>
+------
+new.html.erb
+
+<%= simple_form_for @pet_photo, url: pet_pet_photos_path, :method => 'post' do |f| %>
+  <%= f.input :caption %>
+  <%= f.input :date, as: :date, start_year: Date.today.year - 10,
+                             end_year: Date.today.year, discard_day: false,
+                             order: [:day, :month, :year] %>
+  <%= f.input :address, :placeholder => "Address, City, Province" %>
+  <%= f.file_field :images, required: true, multiple: true %>
+
+
+
+  <%= f.button :submit, "Save" %>
+<% end %>
+
+----
 in controller
 render layout: "whatever you named it"
 

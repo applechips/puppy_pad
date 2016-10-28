@@ -4,6 +4,6 @@ class PetPhoto < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  mount_uploader :images, ImageUploader
+  mount_uploaders :images, ImageUploader
 
 end
