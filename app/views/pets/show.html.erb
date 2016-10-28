@@ -20,6 +20,7 @@
                                       <!-- USER PROFILE -->
                                       <div class="content">
                                           <div class="author">
+                                            <!-- profile pic -->
                                             <img class="avatar border-white" src="<%= @pet.image %>" alt="..."/>
                                             <h4 class="title"> <%= @pet.name %> <br/>
                                                <a href="#"><small><%= link_to "Edit Info", edit_pet_path(@pet) %></small></a>
@@ -27,7 +28,6 @@
                                           </div>
                                           <p class="description text-center">
                                             <%= @pet.breed %> | <%= @pet.sex %> <br>
-
                                           </p>
                                       </div>
 
@@ -36,7 +36,10 @@
                                       <div class="text-center">
                                           <div class="row">
                                               <div class="col-md-3 col-md-offset-1">
-                                                <%#ç= link_to "Add a Photo", new_pet_photos_path() %>
+                                                <%= link_to "Photos", pet_pet_photos_path(@pet) %> |
+                                                <%= link_to "Add a Photo", new_pet_pet_photo_path(@pet) %> |
+                                                <%= link_to "Medical Records", pet_medical_records_path(@pet) %> |
+                                                <%= link_to "Add a Medical Record", new_pet_medical_record_path(@pet) %>
                                               </div>
                                               <div class="col-md-4">
                                                   <h5>Upcoming Appointments:<br /><small>Used</small></h5>

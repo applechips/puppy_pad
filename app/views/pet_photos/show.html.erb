@@ -1,7 +1,3 @@
-<% @pet_photo.images.each_with_index do |image, index| %>
-  <%= image_tag(image.url(:large)) %>
-<% end %>
-
 <div>
     <div id="map" style='height: 400px;'></div>
 </div>
@@ -13,8 +9,17 @@
       {
         "lat": <%= @pet_photo.latitude %>,
         "lng": <%= @pet_photo.longitude %>,
-        "infowindow": "<%= @pet_photo.caption %> "
-
+        "infowindow": "<%= @pet_photo.caption %>"
       }
     ]);
+    handler.bounds.extendWith(markers);
+         handler.fitMapToBounds();
+         handler.getMap().setZoom(15)
+       });
 </script>
+
+<div>
+  <% @pet_photo.images.each_with_index do |image, index| %>
+    <%= image_tag(image.url(:large)) %>
+  <% end %>
+</div>

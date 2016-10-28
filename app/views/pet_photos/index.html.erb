@@ -1,4 +1,4 @@
-<!-- <div>
+<div>
   <div id="map" style='height: 400px;'></div>
 </div>
 
@@ -10,14 +10,4 @@
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
-</script> -->
-
-<div>
-  <% @pet_photos.each do |p| %>
-  <div>
-  <%= image_tag p.images.url(:medium) %> <br>
-  <%= p.caption %> <br>
-  <%= p.date %>
-  </div>
-  <% end %>
-</div>
+</script>
