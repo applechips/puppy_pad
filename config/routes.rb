@@ -21,5 +21,6 @@ Rails.application.routes.draw do
     resources :appointments
   end
 
-  root to: "pets#index"
+  root to: "homes#index"
+
 end

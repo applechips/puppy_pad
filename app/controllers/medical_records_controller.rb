@@ -16,7 +16,6 @@ class MedicalRecordsController < ApplicationController
       flash[:alert] = "Oopsie!"
       render :new
     end
-
   end
 
   def show

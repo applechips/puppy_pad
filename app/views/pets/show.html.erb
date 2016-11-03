@@ -1,93 +1,56 @@
-
-
-<%#= link_to "Medical Records", pet_medical_records_path(@pet) %>
-<%#= link_to "Add a Medical Record", new_pet_medical_record_path(@pet) %>
-<%#= link_to "Photos", pet_pet_photos_path(@pet) %>
-<%#= link_to "Add a Photo", new_pet_pet_photos_path(@pet) %>
-
-
-
-        <div class="content">
-          <div class="content">
-                      <div class="container-fluid">
-                          <div class="row">
-                              <div class="col-lg-4 col-md-5">
-                                  <div class="card card-user">
-                                      <div class="image">
-                                          <img src="assets/img/background.jpg" alt="..."/>
-                                      </div>
-
-                                      <!-- USER PROFILE -->
-                                      <div class="content">
-                                          <div class="author">
-                                            <!-- profile pic -->
-                                            <img class="avatar border-white" src="<%= @pet.image %>" alt="..."/>
-                                            <h4 class="title"> <%= @pet.name %> <br/>
-                                               <a href="#"><small><%= link_to "Edit Info", edit_pet_path(@pet) %></small></a>
-                                            </h4>
-                                          </div>
-                                          <p class="description text-center">
-                                            <%= @pet.breed %> | <%= @pet.sex %> <br>
-                                          </p>
-                                      </div>
-
-                                      <hr>
-
-                                      <div class="text-center">
-                                          <div class="row">
-                                              <div class="col-md-3 col-md-offset-1">
-                                                <%= link_to "Photos", pet_pet_photos_path(@pet) %> |
-                                                <%= link_to "Add a Photo", new_pet_pet_photo_path(@pet) %> |
-                                                <%= link_to "Medical Records", pet_medical_records_path(@pet) %> |
-                                                <%= link_to "Add a Medical Record", new_pet_medical_record_path(@pet) %>
-                                              </div>
-                                              <div class="col-md-4">
-                                                  <h5>Upcoming Appointments:<br /><small>Used</small></h5>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="card">
-                                      <div class="header">
-                                          <h4 class="title">Places</h4>
-                                      </div>
-                                      <div class="content">
-                                          <ul class="list-unstyled team-members">
-                                                      <li>
-                                                          <div class="row">
-
-                                                          </div>
-                                                      </li>
-                                                  </ul>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <!-- PROFILE EDIT-->
-                              <div class="col-lg-8 col-md-7">
-                                  <div class="card">
-                                      <div class="header">
-                                          <h4 class="title">Photos</h4>
-                                      </div>
-                                      <div class="content">
-
-                                  </div>
-                              </div>
-
-
-                          </div>
-                      </div>
-                  </div>
-        </div> <!-- CONTENT --->
-
-        <div class="col-md-6">
-          <div class="card">
-              <div class="header">
-                  <h4 class="title">Photos</h4>
-
-
+<div id="navbar-styling">
+  <div class="container">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                  </button>
+                  <a class="navbar-brand page-scroll" href="#page-top">PUPPY PAD</a>
               </div>
-              <div class="content">
 
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                    <% @pets.each do |p| %>
+                    <li>
+                      <%= link_to p.name, pet_path(p) %>
+                    </li>
+
+                    <% end %>
+
+                      <li>
+                        <%= link_to "Logout", sessions_path, method: :delete %>
+                      </li>
+                      <li>
+                        <!-- Button trigger modal -->
+                      <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        Login
+                      </button> -->
+
+
+                      </li>
+                  </ul>
+              </div>
+              <!-- /.navbar-collapse -->
           </div>
-        </div>
+          <!-- /.container-fluid -->
+  </nav>
+  </div>
+</div>
+
+
+
+
+<img class="avatar border-white" src="<%= @pet.image %>" alt="..."/>
+<h4 class="title"> <%= @pet.name %> <br/>
+<a href="#"><small><%= link_to "Edit Info", edit_pet_path(@pet) %></small></a>
+</h4>
+</div>
+<%= @pet.breed %> | <%= @pet.sex %> <br>
+
+<%= link_to "Photos", pet_pet_photos_path(@pet) %> |
+<%= link_to "Add a Photo", new_pet_pet_photo_path(@pet) %> |
+<%= link_to "Medical Records", pet_medical_records_path(@pet) %> |
+<%= link_to "Add a Medical Record", new_pet_medical_record_path(@pet) %>

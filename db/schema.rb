@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028001047) do
+ActiveRecord::Schema.define(version: 20161101225022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accomplishments", force: :cascade do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "pet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_accomplishments_on_pet_id", using: :btree
+  end
 
   create_table "appointments", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +42,28 @@ ActiveRecord::Schema.define(version: 20161028001047) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chats_on_user_id", using: :btree
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
+  end
+
+  create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "medical_records", force: :cascade do |t|
     t.string   "date"
     t.string   "condition_procedure"
@@ -42,6 +73,16 @@ ActiveRecord::Schema.define(version: 20161028001047) do
     t.float    "weight"
     t.integer  "pet_id"
     t.index ["pet_id"], name: "index_medical_records_on_pet_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "pet_photos", force: :cascade do |t|
@@ -141,7 +182,11 @@ ActiveRecord::Schema.define(version: 20161028001047) do
     t.index ["user_id"], name: "index_vets_on_user_id", using: :btree
   end
 
+  add_foreign_key "accomplishments", "pets"
+  add_foreign_key "chats", "users"
   add_foreign_key "medical_records", "pets"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "pet_photos", "pets"
   add_foreign_key "pets", "users"
   add_foreign_key "vets", "pets"

@@ -1,1 +1,84 @@
+<%= link_to "Logout", sessions_path, method: :delete %>
+<%= Date.today %>
 
+<div class="container">
+	<h2>Timeline</h2>
+
+<div id="timeline-style">
+  <section id="cd-timeline" class="cd-container">
+
+		<% @all_records.each do |m| %>
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="http://www.clker.com/cliparts/1/I/q/A/9/1/dark-orange-paw-print-hi.png" alt="Picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2><%= m[:type] %></h2>
+				<p><%= m[:activity] %></p>
+				<!-- images is in an array  -->
+				<%= puts m[:images] %>
+				<%#= binding.pry %>
+
+			<div class = 'img-container'>
+				<% if m[:images].present? %>
+					<% m[:images].each do |img| %>
+          <%= image_tag(img.url(:medium)) %>
+					<% end %>
+				<% end %>
+			</div>
+				<span class="cd-date"><%= m[:date] %></span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+		<% end %>
+
+	</section> <!-- cd-timeline -->
+</div>
+
+
+<!-- FUN FACTS -->
+<div>
+  Did you know...?
+  <% @facts = [ "Dogs’ noses secrete a thin layer of mucous that helps them absorb scent. They then lick their noses to sample the scent through their mouth.",
+                "Dogs have about 1,700 taste buds. Humans have approximately 9,000 and cats have around 473.",
+                "In addition to sweating through their paw pads, dogs pant to cool themselves off. A panting dog can take 300-400 breaths (compared to his regular 30-40) with very little effort.",
+                "Dogs curl up in a ball when they sleep due to an age-old instinct to keep themselves warm and protect their abdomen and vital organs from predators.",
+                "When dogs kick after going to the bathroom, they are using the scent glands on their paws to further mark their territory.",
+                "Dogs’ ears are extremely expressive. It’s no wonder! There are more than a dozen separate muscles that control a dog’s ear movements.",
+                "Sound frequency is measured in Hertz (Hz). The higher the Hertz, the higher-pitched the sound. Dogs hear best at 8,000 Hz, while humans hear best at around 2,000 Hz.",
+                "Dogs’ eyes contain a special membrane, called the tapetum lucidum, which allows them to see in the dark.",
+                "Puppies have 28 teeth and normal adult dogs have 42.",
+                "Corgi is Welsh for \"dwarf dog\" ",
+                "The basenji is the only breed of dog that can’t bark, but they can yodel!",
+                "When dogs poop, they prefer to do it in alignment with the Earth’s magnetic field.",
+                "The Norwegian Lundehund is the only dog that has six toes on each foot!" ] %>
+  <%= @facts.sample %>
+</div>
+
+
+
+<!-- PHOTO MAP -->
+<div class="row">
+  <div id="multi_markers" style='height: 600px;'></div>
+    <script type="text/javascript">
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+      var markers = handler.addMarkers([
+        <% @pet_photos.each do |p| %>
+          { lat: <%= p.latitude %>, lng: <%= p.longitude %>, infowindow: " <%= p.caption %>" },
+
+        <% end %>
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      });
+    </script>
+</div>
+
+<!-- DISPLAY ALL PHOTOS -->
+<% @pet_photos.each do |p| %>
+<% p.images.first.url(:large) %>
+  <% p.images.each do |i| %>
+    <%= image_tag i.url(:large) %>
+  <% end %>
+<% end %>

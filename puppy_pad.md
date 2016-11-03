@@ -1,3 +1,53 @@
+ROD LOGIN
+
+<div>
+  <img src="/puppypad.png">
+</div>
+  <span>
+  <h2>Sign In</h2>
+  <br>
+  <%= flash[:alert] %>
+
+  <%= form_tag sessions_path do %>
+
+    <div class='form-group'>
+      <div class='row'>
+        <div class='col-sm-offset-4 col-sm-4'>
+          <div class='input-group'>
+            <div class='input-group-addon'>
+              <i class='glyphicon glyphicon-user'></i>
+            </div>
+            <%= email_field_tag :email, nil, class:'form-control'%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <div class='row'>
+        <div class='col-sm-offset-4 col-sm-4'>
+          <div class='input-group'>
+            <div class='input-group-addon'>
+              <i class='glyphicon glyphicon-user'></i>
+            </div>
+            <%= password_field_tag :password, nil, class:'form-control'%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <div class='row'>
+        <div class='col-sm-offset-4 col-sm-4'>
+          <%= submit_tag 'Sign In', class:'btn btn-primary'%>
+        </div>
+      </div>
+    </div>
+
+  <%end%>
+
+-------------
+
 geolocation
 
 var handler = Gmaps.build('Google');

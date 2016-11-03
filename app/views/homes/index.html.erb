@@ -1,0 +1,62 @@
+
+<div id="navbar-styling">
+  <div class="container">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">PUPPY PAD</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                          <%= link_to "Sign Up", new_user_path %>
+                        </li>
+                        <li>
+                          <!-- Button trigger modal -->
+                        <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                          Login
+                        </button> -->
+
+                          <%= link_to "Login", "", id: "login", data: {toggle:"modal", target: "#myModal"} %>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+    </nav>
+  </div>
+
+  <header>
+    <div class="background-container">
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/93a91240649039.579107869ed86.jpg">
+      <div class="row" id="head-row">
+          <div class="header-content">
+          <h1 id="puppy_pad">PUPPY PAD</h1>
+          <p>Keeping the memories you create with your best pal.</p>
+          </div>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= render 'login' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
