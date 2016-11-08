@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'pet_photos#show', as: :tag
 
-  # get 'auth/:provider/callback', to: 'sessions#create'
+  get '/auth/twitter', as: :sign_in_with_twitter
+  get '/auth/twitter/callback' => 'callbacks#twitter'
+
   # get 'auth/failure', to: redirect('/')
   # get 'signout', to: 'sessions#destroy', as: 'signout'
 

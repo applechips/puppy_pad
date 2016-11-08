@@ -50,6 +50,7 @@ gem 'gmaps4rails'
 gem 'underscore-rails'
 
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem 'chartkick'
 gem 'googlecharts'

@@ -1,48 +1,54 @@
 
-<canvas id="health_chart"></canvas>
-  <script>
-  $(document).ready(function(){
-    var data = {
-    	labels : <%= @date.to_s.html_safe %>,
-    	datasets : [
-    		{
-          label : "Weight",
-          cubicInterpolationMode : "monotone",
-          borderColor : "rgba(109,204,204,1)",
-          spanGaps : true,
-          backgroundColor: 'rgba(109,204,204,0.2)',
-    			// data : fakeData.reverse()
-    			data : <%= @weight %>
-    		},
-    	]
-    }
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <canvas id="health_chart"></canvas>
+    <script>
+    $(document).ready(function(){
+      var data = {
+      	labels : <%= @date.to_s.html_safe %>,
+      	datasets : [
+      		{
+            label : "Weight",
+            cubicInterpolationMode : "monotone",
+            borderColor : "rgba(109,204,204,1)",
+            spanGaps : true,
+            backgroundColor: 'rgba(109,204,204,0.2)',
+      			// data : fakeData.reverse()
+      			data : <%= @weight %>
+      		},
+      	]
+      }
 
-    var ctx = document.getElementById('health_chart').getContext('2d');
-    var myNewChart = new Chart(ctx , {
-        type: "line",
-        data: data,
-        options: {
-          scales: {
-            yAxes: [{
-              scaleLabel: {
-                display: true,
-                fontSize: 20,
-                labelString: 'Weight (lbs)'
-              }
-            }],
-            xAxes: [{
-              scaleLabel: {
-                display: true,
-                fontSize: 19,
-                labelString: 'Date (YYY-MM-DD)'
-              }
-            }]
+      var ctx = document.getElementById('health_chart').getContext('2d');
+      var myNewChart = new Chart(ctx , {
+          type: "line",
+          data: data,
+          options: {
+            scales: {
+              yAxes: [{
+                scaleLabel: {
+                  display: true,
+                  fontSize: 20,
+                  labelString: 'Weight (lbs)'
+                }
+              }],
+              xAxes: [{
+                scaleLabel: {
+                  display: true,
+                  fontSize: 19,
+                  labelString: 'Date (YYY-MM-DD)'
+                }
+              }]
 
+            }
           }
-        }
-    });
-  })
-  </script>
+      });
+    })
+    </script>
+<div>
 
   <div class="container">
     <h2>Medical Records</h2>
@@ -63,8 +69,7 @@
         <td><%= m.weight %></td>
         <td><%= m.condition_procedure %></td>
         <td><%= m.charges %></td>
-        <td><%#= link_to "Edit", edit_pet_medical_record_path(@pet) %> | <%#= link_to "Delete", pet_medical_record_path(m), method: :delete, data: {confirm: "Are you sure?"} %></td>
-      </tr>
+
       <% end %>
     </tbody>
   </table>

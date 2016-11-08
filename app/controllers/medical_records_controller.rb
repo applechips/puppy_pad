@@ -1,5 +1,6 @@
 class MedicalRecordsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def new
     @medical_record = MedicalRecord.new
     @pet = Pet.find params[:pet_id]
@@ -35,6 +36,9 @@ class MedicalRecordsController < ApplicationController
       end
     end
     p @date
+
+    @pets = current_user.pets
+    render layout: 'navbar-pets'
   end
 
   def destroy

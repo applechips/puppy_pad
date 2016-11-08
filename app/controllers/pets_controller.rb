@@ -21,7 +21,8 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find params[:id]
     @pets = current_user.pets
-    # render layout: 'dashboard'
+
+    render layout: 'navbar'
   end
 
   def index
@@ -50,13 +51,9 @@ class PetsController < ApplicationController
       end
     end
     new_array = @all_records.sort_by { |ar| ar[:id] }
-    # puts @all_records
-    # binding.pry
     puts new_array
 
-
-
-    # render layout: 'dashboard'
+    render layout: 'navbar-pets'
   end
 
   def edit
@@ -84,6 +81,7 @@ class PetsController < ApplicationController
     params.require(:pet).permit([:name, :breed, :sex, :birthday,
                                       :colour, :breeder, :image])
   end
+
 
 
 end

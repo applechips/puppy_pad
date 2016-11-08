@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       flash[:alert] = "Wrong email or password"
       render :new
     end
+
   end
 
   def destroy

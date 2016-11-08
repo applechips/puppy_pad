@@ -1,4 +1,6 @@
 class PetPhotosController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @pet = Pet.find(params[:pet_id])
     # @pet_photo = PetPhoto.new(pet: @pet)
@@ -9,9 +11,8 @@ class PetPhotosController < ApplicationController
     @pet = Pet.find params[:pet_id]
     @pet_photo = PetPhoto.new pet_photo_params
     @pet_photo.pet = @pet
-
     if @pet_photo.save
-      flash[:alert] = "UUUUUUUU!"
+      # flash[:alert] = "UUUUUUUU!"
       redirect_to pet_pet_photo_path(@pet, @pet_photo), notice: "Added!"
     else
       flash[:alert] = "Oopsie!"
