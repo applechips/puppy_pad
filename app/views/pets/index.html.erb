@@ -34,8 +34,11 @@
 <!-- FUN FACTS -->
 <div id="fun-facts">
   <div class="container">
-    <br>
-    Did you know...?
+
+    <img src="http://www.pngall.com/wp-content/uploads/2016/03/Light-Bulb-PNG-Images.png" width=10% height=10% align="left">
+      <br>
+      <br>
+    <p align="left"><strong>Did you know...?</strong>
     <% @facts = [ "Dogs’ noses secrete a thin layer of mucous that helps them absorb scent. They then lick their noses to sample the scent through their mouth.",
       "Dogs have about 1,700 taste buds. Humans have approximately 9,000 and cats have around 473.",
       "In addition to sweating through their paw pads, dogs pant to cool themselves off. A panting dog can take 300-400 breaths (compared to his regular 30-40) with very little effort.",
@@ -50,10 +53,10 @@
       "When dogs poop, they prefer to do it in alignment with the Earth’s magnetic field.",
       "The Norwegian Lundehund is the only dog that has six toes on each foot!" ] %>
       <%= @facts.sample %>
-  <br>
-  <br>
+    <p>
+      <br>
+    </div>
 </div>
-  </div>
 
 <div class="container">
 <h2>Places</h2>
@@ -66,7 +69,7 @@
       handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
       var markers = handler.addMarkers([
         <% @pet_photos.each do |p| %>
-          { lat: <%= p.latitude %>, lng: <%= p.longitude %>, infowindow: " <%= p.caption %>" },
+          { lat: <%= p.latitude %>, lng: <%= p.longitude %>, infowindow: " <%= p.caption %> " },
 
         <% end %>
       ]);
@@ -86,3 +89,15 @@
 <%# end %>
 
 </div>
+
+
+<footer>
+  <div class="container">
+    <br>
+      <p><img src="/puppypad.png" width=10%>
+      &copy; 2016 Nicole Wong &nbsp;&nbsp;&nbsp;<a href="https://github.com/applechips/puppy_pad">SOURCE CODE</a></p>
+
+
+
+  </div>
+</footer>

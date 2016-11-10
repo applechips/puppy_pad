@@ -1,3 +1,5 @@
+<div id="profile-style">
+
 
   <div class="container">
     <div class="row">
@@ -8,7 +10,7 @@
         <div class="col-md-4">
           <h4 class="title"> <%= @pet.name %> <br/>
             <div>
-              <img class="avatar border-white" src="<%= @pet.image %>" alt="..."/>
+              <img class="img-fluid" src="<%= @pet.image %>"/>
             </div>
           <a href="#"><small><%= link_to "Edit Info", edit_pet_path(@pet) %></small></a>
           </h4>
@@ -25,3 +27,4 @@
 
     </div>
   </div>
+</div>

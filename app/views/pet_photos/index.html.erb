@@ -1,33 +1,55 @@
-<style>
-header {
 
-}
-</style>
 
-<header>
+
+
 <div class="container-fluid">
-  <div class="row">
-    <div id="multi_markers" style='height: 600px;'></div>
-      <script type="text/javascript">
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
-        var markers = handler.addMarkers([
-          <% @pet_photos.each do |p| %>
-            { lat: <%= p.latitude %>, lng: <%= p.longitude %>, infowindow: "<%= p.caption %>" },
-          <% end %>
-        ]);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        });
-      </script>
-  </div>
-  <div class="row">
-    <div>
-      <% @pet_photo.each do |p| %>
+  <h1><%= @pet.name %><h1>
 
-      <% end %>
+  <header>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="multi_markers" style='height: 600px;'></div>
+        <script type="text/javascript">
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+          var markers = handler.addMarkers([
+            <% @pet_photos.each do |p| %>
+              { lat: <%= p.latitude %>, lng: <%= p.longitude %>, infowindow: "<%= p.caption %>" },
+            <% end %>
+          ]);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          });
+        </script>
     </div>
+    <div class="row">
+      <div>
+      </div>
 
+    </div>
+  </div>
+  </header>
+
+
+
+
+  <div id="photo-gallery-styling">
+    <div id="photos">
+      <ul id="photo-gallery">
+
+          <% @pet_photo.each do |p| %>
+          <li>
+
+          <% p.images.first.url(:large) %>
+            <% p.images.each do |i| %>
+
+              <%= image_tag i.url(:large) %>
+
+            <% end %>
+        </li>
+          <% end %>
+
+      </ul>
+    </div>
   </div>
 </div>
-</header>

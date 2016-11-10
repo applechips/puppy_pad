@@ -1,25 +1,32 @@
 class MedicalRecordsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @medical_record = MedicalRecord.new
     @pet = Pet.find params[:pet_id]
+    render layout: 'navbar-features'
+
   end
 
   def create
-    @pet = Pet.find params[:pet_id]
-    @medical_record = MedicalRecord.new medical_record_params
+    @pet                = Pet.find params[:pet_id]
+    @medical_record     = MedicalRecord.new medical_record_params
     @medical_record.pet = @pet
 
-    if @medical_record.save
-      redirect_to pet_medical_records_path(@medical_record), notice: "Added!"
-    else
-      flash[:alert] = "Oopsie!"
-      render :new
+  respond_to do |format|
+      if @medical_record.save
+        format.html { redirect_to pet_medical_records_path(@medical_record), notice: "Added!" }
+        format.js {render :create_success}
+      else
+        format.js { }
+        format.js { render :create_failure}
+        render :new
+      end
     end
   end
 
   def show
+
   end
 
   def index
@@ -38,7 +45,11 @@ class MedicalRecordsController < ApplicationController
     p @date
 
     @pets = current_user.pets
-    render layout: 'navbar-pets'
+
+    @medical_record_new = MedicalRecord.new
+    @medical_record_new.pet = @pet
+
+    render layout: 'navbar-features'
   end
 
   def destroy

@@ -12,7 +12,6 @@ class PetPhotosController < ApplicationController
     @pet_photo = PetPhoto.new pet_photo_params
     @pet_photo.pet = @pet
     if @pet_photo.save
-      # flash[:alert] = "UUUUUUUU!"
       redirect_to pet_pet_photo_path(@pet, @pet_photo), notice: "Added!"
     else
       flash[:alert] = "Oopsie!"
@@ -29,6 +28,9 @@ class PetPhotosController < ApplicationController
     else
       @pet_photos = PetPhoto.where.not(latitude: nil, longitude: nil).order(:created_at).limit(30)
     end
+
+    @pet = Pet.find params[:pet_id]
+        render layout: 'navbar-features'
   end
 
   def show

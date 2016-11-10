@@ -1,5 +1,4 @@
 class ImageUploader < CarrierWave::Uploader::Base
-
   include CarrierWave::MiniMagick
 
    storage :file
@@ -36,20 +35,24 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   process resize_to_fit: [50, 50]
   # end
 
-  version :thumb do
-    process :resize_to_fit => [50, 50]
-  end
+  # version :thumb do
+  #   process :resize_to_fit => [50, 50]
+  # end
 
-  version :small do
-    process :resize_to_fit => [100, 100]
-  end
-
-  version :medium do
-    process :resize_to_limit => [200, 200]
-  end
-
+  # version :small do
+  #   process :resize_to_fit => [100, 100]
+  # end
+  #
+  # version :medium do
+  #   process :resize_to_limit => [200, 200]
+  # end
+  #
   version :large do
-    process :resize_to_fit => [300, 300]
+    process :resize_to_limit => [300, 300]
+  end
+  #
+  version :square do
+    process :resize_to_fill => [400, 400]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -62,6 +65,30 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
+  # end
+
+  ### SMARTCROPPER
+  # def smart_crop_and_scale(width, height)
+  #   manipulate! do |img|
+  #     img = SmartCropper.new(img)
+  #     img = img.smart_crop_and_scale(width, height)
+  #     img = yield(img) if block_given?
+  #     img
+  #   end
+  # end
+  #
+  # # Create different versions of your uploaded files:
+  # # A square and tiny thumbnail
+  # version :thumb do
+  #   process :smart_crop_and_scale => [80, 80]
+  # end
+  # # A large version, only cropped
+  # version :preview do
+  #   processs :crop => [200,400]
+  # end
+  # # A square version
+  # version :cover do
+  #   process :smart_square
   # end
 
 end
