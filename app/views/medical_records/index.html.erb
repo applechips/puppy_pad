@@ -51,9 +51,7 @@
 <div>
 
   <div>
-    <%= simple_form_for @medical_record_new,
-      :url => url_for(:action => 'create', :controller => 'medical_records'),
-      :method => 'post', remote:true do |f| %>
+    <%= simple_form_for [@pet,@medical_record_new], remote:true do |f| %>
       <%= f.input :date, :placeholder => "YYYY-MM-DD" %>
 
 
@@ -64,27 +62,7 @@
     <% end %>
   </div>
 
-  <div class="container">
-    <h2>Medical Records</h2>
-    <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Weight</th>
-        <th>Condition/Procedure</th>
-        <th>Charges</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @medical_record.each do |m| %>
-      <tr>
-        <td><%= m.date %></td>
-        <td><%= m.weight %></td>
-        <td><%= m.condition_procedure %></td>
-        <td><%= m.charges %></td>
 
-      <% end %>
-    </tbody>
-  </table>
-  </div>
+<div id="medical-record-table">
+  <%= render 'table' %>
+</div>

@@ -15,6 +15,7 @@ class MedicalRecordsController < ApplicationController
 
   respond_to do |format|
       if @medical_record.save
+        @medical_records = MedicalRecord.all
         format.html { redirect_to pet_medical_records_path(@medical_record), notice: "Added!" }
         format.js {render :create_success}
       else
@@ -32,7 +33,7 @@ class MedicalRecordsController < ApplicationController
   def index
     @weight = []
     @date = []
-    @medical_record = MedicalRecord.all
+    @medical_records = MedicalRecord.all
     @pet = Pet.find params[:pet_id]
     record = @pet.medical_records.order(date: :asc)
     record.each do |r|
