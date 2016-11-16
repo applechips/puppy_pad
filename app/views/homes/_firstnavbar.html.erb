@@ -1,18 +1,53 @@
+<style>
+
+  .navbar .navbar-brand {
+    letter-spacing: 1px;
+    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    color: #fcbd20;
+  }
+  .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover, .navbar-light .navbar-toggler:focus, .navbar-light .navbar-toggler:hover {
+    letter-spacing: 1px;
+    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+  }
+.navbar-light .navbar-nav .nav-link {
+  color: #5283fd;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: #fcbd20;
+
+}
+
+.navbar .navbar-nav > li > a {
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin: 13px 0px;
+    padding: 20px 15px;
+  }
+
+</style>
+
+
+
 <div id="navbar-styling">
   <div class="container">
-  <nav class="navbar navbar-light bg-faded">
-    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
-    <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <ul class="nav navbar-nav float-xs-right">
-        <li>
-          <%= link_to "Sign Up", new_user_path, class:"page-scroll" %>
-        </li>
-        <li>
-          <%= link_to "Login", "", id: "login", data: {toggle:"modal", target: "#myModal"}, class:"page-scroll" %>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
+    <nav class="navbar navbar-light">
+      <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+        <a class="navbar-brand" href="#">PUPPY PAD</a>
+        <ul class="nav navbar-nav float-xs-right">
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", "", id: "login", data: {toggle:"modal", target: "#myModal"}, class:"nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </div>
