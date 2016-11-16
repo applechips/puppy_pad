@@ -12,11 +12,11 @@
 //
 
 //= require jquery
+//= require tether
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require underscore
 //= require Chart
 //= require gmaps/google
 //= require turbolinks
-//= require gmaps/google
 //= require_tree .

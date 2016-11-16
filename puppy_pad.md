@@ -1,3 +1,47 @@
+
+<div id="navbar-styling">
+  <div class="container">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#page-top">PUPPY PAD</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                          <%= link_to "Sign Up", new_user_path, class:"page-scroll" %>
+                        </li>
+                        <li>
+                          <%= link_to "Login", "", id: "login", data: {toggle:"modal", target: "#myModal"}, class:"page-scroll" %>
+                          <%#= link_to "Login", new_session_path %>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+    </nav>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------
 ROD LOGIN
 
 <div>

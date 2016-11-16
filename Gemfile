@@ -33,8 +33,10 @@ gem 'rails-erd'
 
 gem 'simple_form'
 
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'bootstrap-glyphicons'
+gem 'bootstrap', '~> 4.0.0.alpha5'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 
 gem 'font-awesome-rails'
 

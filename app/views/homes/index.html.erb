@@ -1,34 +1,4 @@
-
-<div id="navbar-styling">
-  <div class="container">
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">PUPPY PAD</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li>
-                          <%= link_to "Sign Up", new_user_path, class:"page-scroll" %>
-                        </li>
-                        <li>
-                          <%= link_to "Login", "", id: "login", data: {toggle:"modal", target: "#myModal"}, class:"page-scroll" %>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-    </nav>
-  </div>
-
+<%= render 'firstnavbar' %>
   <header>
     <div class="background-container">
       <img class="img-fluid" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/93a91240649039.579107869ed86.jpg">

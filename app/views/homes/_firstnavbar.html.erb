@@ -1,0 +1,18 @@
+<div id="navbar-styling">
+  <div class="container">
+  <nav class="navbar navbar-light bg-faded">
+    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <ul class="nav navbar-nav float-xs-right">
+        <li>
+          <%= link_to "Sign Up", new_user_path, class:"page-scroll" %>
+        </li>
+        <li>
+          <%= link_to "Login", "", id: "login", data: {toggle:"modal", target: "#myModal"}, class:"page-scroll" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</div>

@@ -20,7 +20,7 @@
     				<% if m[:images].present? %>
     					<% m[:images].each do |img| %>
               <%= image_tag(img.url(:medium)) %>
-    					<% end %>
+    					<% end %> 
     				<% end %>
     			</div>
     			</div> <!-- cd-timeline-content -->
@@ -79,14 +79,6 @@
     </script>
 </div>
 
-
-<!-- DISPLAY ALL PHOTOS -->
-<%# @pet_photos.each do |p| %>
-<%# p.images.first.url(:large) %>
-  <%# p.images.each do |i| %>
-    <%#= image_tag i.url(:large) %>
-  <%# end %>
-<%# end %>
 
 </div>
 
