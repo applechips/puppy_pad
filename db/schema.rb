@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108230342) do
+ActiveRecord::Schema.define(version: 20161117064612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,7 +112,9 @@ ActiveRecord::Schema.define(version: 20161108230342) do
     t.string   "birthday_month"
     t.string   "birthday_year"
     t.string   "cover_photo"
+    t.integer  "vet_id"
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
+    t.index ["vet_id"], name: "index_pets_on_vet_id", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -192,6 +194,7 @@ ActiveRecord::Schema.define(version: 20161108230342) do
   add_foreign_key "messages", "users"
   add_foreign_key "pet_photos", "pets"
   add_foreign_key "pets", "users"
+  add_foreign_key "pets", "vets"
   add_foreign_key "vets", "pets"
   add_foreign_key "vets", "users"
 end

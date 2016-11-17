@@ -5,6 +5,8 @@ class PetPhotosController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     # @pet_photo = PetPhoto.new(pet: @pet)
     @pet_photo = PetPhoto.new
+
+    render layout: 'navbar-features'
   end
 
   def create
@@ -30,12 +32,13 @@ class PetPhotosController < ApplicationController
     end
 
     @pet = Pet.find params[:pet_id]
-        render layout: 'navbar-features'
+render layout: 'navbar-features'
   end
 
   def show
     @pet_photo = PetPhoto.find params[:id]
     @pet_photos = PetPhoto.all
+      render layout: 'navbar-features'
   end
 
   private

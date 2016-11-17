@@ -4,6 +4,8 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @pets = current_user.pets
+    render layout: 'navbar-pets'
   end
 
   def create
@@ -22,7 +24,25 @@ class PetsController < ApplicationController
     @pet = Pet.find params[:id]
     @pets = current_user.pets
 
-    render layout: 'navbar'
+    @pet_photos = current_user.pets
+    @pet_photo = @pets.map(&:image)
+
+    @all_records = []
+    @pets.each do |p|
+      p.pet_photos.each do |pp|
+        @all_records << {:date => pp.date, :id=> pp.id, :activity => pp.caption, :images => pp.images, :type => "Activity" }
+
+      end
+      p.medical_records.each do |m|
+        @all_records << {:date => m.date, :id => m.id, :activity => m.condition_procedure, :type => "Vet" }
+
+      end
+    end
+    new_array = @all_records.sort_by { |ar| ar[:id] }
+    puts new_array
+
+
+    render layout: 'navbar-features'
   end
 
   def index

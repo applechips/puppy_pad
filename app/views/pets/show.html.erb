@@ -1,29 +1,62 @@
+<style>
+
+  .pet-info {
+    background: #ffffcc;
+    text-align: center;
+    border-radius: 10px;
+  }
+</style>
+
 <div id="profile-style">
-
-
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-        <br>
-        <br>
-        <br>
-
-        <div class="col-md-4">
-          <h4 class="title"> <%= @pet.name %> <br/>
-            <div>
-              <img class="img-fluid" src="<%= @pet.image %>"/>
-            </div>
-          <a href="#"><small><%= link_to "Edit Info", edit_pet_path(@pet) %></small></a>
-          </h4>
-          <%= @pet.breed %> | <%= @pet.sex %> <br>
+      <div class="col-md-4">
+        <h1 class="title"> <%= @pet.name %></h1>
+        <img class="img-fluid" src="<%= @pet.image %>"/>
+        <div class="pet-info">
+          <br>
+          <h3><%= @pet.breed %> | <%= @pet.sex %> <br></h3>
+          <p><strong>Birthday:</strong> <%= @pet.birthday %>-<%= @pet.birthday_month %>-<%= @pet.birthday_year %><p>
+          <p><strong>Breeder:</strong> <%= @pet.breeder %></p>
+          <p><%= link_to "Edit Info", edit_pet_path(@pet) %><p>
+          <br>
+        </div>
+        <div class="pet-info">
+          <br>
+          <p><strong><%= @pet.vet.name %></strong></p>
+          <p><strong><%= @pet.vet.dr_name %></strong><br>
+          <%= @pet.vet.phone_number %></p>
+          <strong>Address:</strong>
+          <p><%= @pet.vet.address %><br>
+          <%= @pet.vet.city %>, <%= @pet.vet.province_state %><br>
+          <%= @pet.vet.postal_code %></p>
+          <br>
         </div>
 
-        <div class="col-md-8">
-          <div class="container">
-          <%= link_to "Photos", pet_pet_photos_path(@pet) %> |
-          <%= link_to "Add a Photo", new_pet_pet_photo_path(@pet) %> |
-          <%= link_to "Medical Records", pet_medical_records_path(@pet) %> |
-          <%= link_to "Add a Medical Record", new_pet_medical_record_path(@pet) %>
+        <br>
+      </div>
+
+      <div class="col-md-8">
+        <div id="posts-container">
+          <br>
+          <ul class="posts">
+            	<% @all_records.each do |m| %>
+            <% if m[:images].present? %>
+            <% m[:images].each do |img| %>
+            <li class="post">
+              <div class="post-content">
+                <header><a><strong><%= m[:activity]%>  </strong> | <%= m[:date] %></a></header>
+                <%= image_tag(img.url()) %>
+              </div><a class="post-avatar"></a>
+            </li>
+            <% end %>
+            <% end %>
+            <% end %>
+
+          </ul>
+          <br>
         </div>
+      </div>
 
     </div>
   </div>

@@ -3,10 +3,10 @@ class Pet < ApplicationRecord
   validates :image, presence: true
 
   belongs_to :user
+  belongs_to :vet
   has_many :pet_photos
   has_many :medical_records
 
   mount_uploader :image, ImageUploader
-
 
 end
