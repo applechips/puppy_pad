@@ -45,7 +45,7 @@ color: #fcbd20;
   }
   p {
     font-size: 10px;
-    color: #628ffc;
+    // color: #628ffc;
   }
 
   img.img-fluid {
@@ -53,5 +53,17 @@ color: #fcbd20;
     height: auto;
     padding: 0px;
 
+  }
+
+  h4 {
+
+    margin: 0px;
+  }
+
+  p#demo {
+    font-size: 15px;
+    color: #628ffc;
+    padding: 0px;
+    margin: 0px;
   }
 }
