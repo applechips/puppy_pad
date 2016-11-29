@@ -1,4 +1,7 @@
-<%= simple_form_for pet_vets_path do |f| %>
+<div class="container">
+  <h1>Add a Vet</h1>
+<%# simple_form_for pet_vets_path do |f| %>
+<%= simple_form_for pet_vets_path, :method => 'post' do |f| %>
   <%= f.input :dr_name, :label => "Doctor" %>
   <%= f.input :name, :label => "Address", :placeholder => "Name" %>
   <%= f.input :address, :label => false, :placeholder => "Street" %>
@@ -9,3 +12,4 @@
   <%= f.input :phone_number %>
   <%= f.submit "Save" %>
 <% end %>
+</div>

@@ -78,7 +78,7 @@ class PetsController < ApplicationController
 
   def edit
     @pet = Pet.find params[:id]
-    send_SMS
+    # send_SMS
   end
 
   def update

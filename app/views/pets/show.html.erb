@@ -23,6 +23,7 @@
         </div>
         <div class="pet-info">
           <br>
+          <% if @pet.vet.present? %>
           <p><strong><%= @pet.vet.name %></strong></p>
           <p><strong><%= @pet.vet.dr_name %></strong><br>
           <%= @pet.vet.phone_number %></p>
@@ -30,6 +31,10 @@
           <p><%= @pet.vet.address %><br>
           <%= @pet.vet.city %>, <%= @pet.vet.province_state %><br>
           <%= @pet.vet.postal_code %></p>
+          <% else %>
+          <%= link_to "Add Vet Info", new_pet_vet_path(@pet) %>
+          
+          <% end %>
           <br>
         </div>
 

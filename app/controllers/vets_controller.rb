@@ -1,7 +1,7 @@
 class VetsController < ApplicationController
   def new
     @vet = Vet.new
-    render layout: 'navbar-features'
+    # render layout: 'navbar-features'
   end
 
   def create

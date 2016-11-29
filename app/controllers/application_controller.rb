@@ -33,4 +33,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :has_pet?
 
+  def has_vet?
+    current_user.pets.vet.name if defined? current_user.pets.vet.name
+  end
+  helper_method :has_vet?
+
+
+
 end
