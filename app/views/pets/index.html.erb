@@ -20,7 +20,7 @@
     				<% if m[:images].present? %>
     					<% m[:images].each do |img| %>
               <%= image_tag(img.url(:medium)) %>
-    					<% end %> 
+    					<% end %>
     				<% end %>
     			</div>
     			</div> <!-- cd-timeline-content -->
@@ -62,23 +62,24 @@
 <h2>Places</h2>
 </div>
 <!-- PHOTO MAP -->
-<div class="row">
-  <div id="multi_markers" style='height: 600px;'></div>
-    <script type="text/javascript">
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
-      var markers = handler.addMarkers([
-        <% @pet_photos.each do |p| %>
-          { lat: <%= p.latitude %>, lng: <%= p.longitude %>, infowindow: " <%= p.caption %> " },
+<div class="container">
+  <div class="row">
+    <div id="multi_markers" style='height: 600px;'></div>
+      <script type="text/javascript">
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+        var markers = handler.addMarkers([
+          <% @pet_photos.each do |p| %>
+            { lat: <%= p.latitude %>, lng: <%= p.longitude %>, infowindow: " <%= p.caption %> " },
 
-        <% end %>
-      ]);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      });
-    </script>
+          <% end %>
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        });
+      </script>
+  </div>
 </div>
-
 
 </div>
 
