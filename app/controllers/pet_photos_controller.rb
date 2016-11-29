@@ -14,7 +14,7 @@ class PetPhotosController < ApplicationController
     @pet_photo = PetPhoto.new pet_photo_params
     @pet_photo.pet = @pet
     if @pet_photo.save
-      redirect_to pet_pet_photo_path(@pet, @pet_photo), notice: "Added!"
+      redirect_to pet_pet_photos_path(@pet, @pet_photo), notice: "Added!"
     else
       flash[:alert] = "Oopsie!"
       render :new

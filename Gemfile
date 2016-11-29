@@ -45,6 +45,7 @@ gem 'font-awesome-rails'
 # gem 'quiet_assets'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
+gem 'rmagick', require: false
 gem 'plupload-rails'
 gem 'smartcropper'
 
