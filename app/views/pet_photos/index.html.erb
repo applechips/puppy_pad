@@ -31,7 +31,7 @@
   <div id="photo-gallery-styling">
     <div id="photos">
       <ul id="photo-gallery">
-          <% @pet_photo.each do |p| %>
+          <% current_user.pets.first.pet_photos.each do |p| %>
           <li>
           <% p.images.first.url(:large) %>
             <% p.images.each do |i| %>
