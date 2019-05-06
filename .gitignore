@@ -15,7 +15,3 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-
-# hide twilio
-/config/initializers/twilio.rb
-/app/models/appointment.rb
